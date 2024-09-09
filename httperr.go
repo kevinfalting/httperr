@@ -1,4 +1,4 @@
-package errhttp
+package httperr
 
 import (
 	"errors"
