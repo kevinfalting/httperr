@@ -66,7 +66,7 @@ func WrapCommonToStd(toStd ToStd, common ...Middleware) func(HandlerFunc, ...Mid
 // compatible with the stdlib [http.Handler].
 func WrapToStd(h HandlerFunc, toStd ToStd, mw ...Middleware) http.Handler {
 	handler := Wrap(h, mw...)
-	return HandleErr(nil, nil)(handler)
+	return toStd(handler)
 }
 
 // ErrFunc defines the function signature required to handle error responses.
